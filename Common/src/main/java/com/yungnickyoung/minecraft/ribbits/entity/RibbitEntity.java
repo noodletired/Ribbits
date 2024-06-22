@@ -362,7 +362,6 @@ public class RibbitEntity extends AgeableMob implements GeoEntity, Merchant {
         }
     }
 
-    @Override
     public double getMyRidingOffset() {
         return 0.3d;
     }

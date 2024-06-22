@@ -1,5 +1,7 @@
 package com.yungnickyoung.minecraft.ribbits.block;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -19,5 +21,11 @@ public class SwampPlantBlock extends BushBlock {
     public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
         Vec3 offset = blockState.getOffset(blockGetter, blockPos);
         return SHAPE.move(offset.x, offset.y, offset.z);
+    }
+
+    @Override
+    protected MapCodec<? extends BushBlock> codec() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

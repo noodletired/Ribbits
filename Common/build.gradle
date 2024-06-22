@@ -7,8 +7,6 @@ archivesBaseName = "${mod_name}"
 version = "${mc_version}-Common-${version}"
 group = maven_group
 
-def useLocalYungsApi = findProject(':yungsapi') != null
-
 minecraft {
     version(mc_version)
     runs {
@@ -29,11 +27,7 @@ repositories {
 
 dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
-    if (useLocalYungsApi) {
-        compileOnly files("libs/YungsApi-${yungsapi_mc_version}-Common-${yungsapi_version}.jar")
-    } else {
-        compileOnly("com.yungnickyoung.minecraft.yungsapi:YungsApi:${yungsapi_mc_version}-Common-${yungsapi_version}")
-    }
-
-    compileOnly("software.bernie.geckolib:geckolib-forge-1.20.1:${forge_geckolib_version}")
+    compileOnly("com.yungnickyoung.minecraft.yungsapi:YungsApi:${yungsapi_mc_version}-Common-${yungsapi_version}")
+    compileOnly("software.bernie.geckolib:geckolib-forge-${mc_version}:${forge_geckolib_version}")
+		compileOnly("com.eliotlash.mclib:mclib:20")
 }
